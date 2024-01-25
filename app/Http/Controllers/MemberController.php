@@ -189,7 +189,24 @@ public function removeAddContribution(Request $request){
 
   }
 
+  public function getUserInfo(String $username){
+    $userInfo = Member::where('email',$username)->get()->first();
 
+    return response($userInfo);
+}
+
+
+public function updateUser(){
+    
+    $data = $request->validate(['name'=>'required',
+    'email'=>'required',
+    'phone'=>'required',
+    'password'=>'required']);
+
+    $member = Member::where('email', $request->email)->get()->first();
+    $member->update($data);
+    return response("Update Success");
+}
 
 
   
