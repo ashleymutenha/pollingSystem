@@ -39,3 +39,4 @@ Route::post('/searchResults', [MemberController::class,'searchMembers'])->name('
 
 Route::get('/allMembers', [MemberController::class,'getAllMembers'])->name('allMembers');
 Route::get('/contributions/{username}', [ContributionsController::class,'getUserContributions'])->name('_userContributions');
+URL::forceScheme('https');
