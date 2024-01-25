@@ -181,11 +181,11 @@ return [
     |
     */
 
-    'http_only' => true,
+    'http_only' => false,
 
     /*
     |--------------------------------------------------------------------------
-    | Same-Site Cookies
+    | Same-Site Cookiescd deskt
     |--------------------------------------------------------------------------
     |
     | This option determines how your cookies behave when cross-site requests
