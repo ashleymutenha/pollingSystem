@@ -62,6 +62,52 @@ class MemberController extends Controller
         
     }
 
+
+    public function mobileAppRegister(Request $request){
+
+        $data = $request->validate(['name'=>'required',
+        'email'=>'required',
+        'phone'=>'required',
+        'password'=>'required']);
+
+        $allRegisteredData = Member::all();
+        $errorMessage ='';
+
+
+        // Validation
+        if($request->password=='' || 
+        $request->password2==''|| $request->email ==''||
+        $request->name==''|| $request->phone ==''){
+            $errorMessage = 'Enter All Details!';
+
+        }
+        else{
+        foreach($allRegisteredData as $user){
+            if($user->email == $request->email){
+              $errorMessage = 'Username already Choosen!';
+            }
+        }
+
+        if($errorMessage==''){
+            if($request->password != $request->password2){
+                $errorMessage = 'Password Mismatch!';
+
+            }
+        }
+    }
+    // exit POST Method
+    if ($errorMessage ==''){
+        Member::create($data);
+
+        return response('success',200);
+    }
+
+    else{
+        return response($errorMessage,400);
+    }
+        
+    }
+
     public function login(Request $request){
        $username =$request->input('email');
        $password = $request->input('password');
@@ -76,6 +122,7 @@ class MemberController extends Controller
      return view("members.login")->with('errorMessage',$errorMessage);
 
     }
+
 
     if($errorMessage !="Member Not Found!"){
            if($password==$userObject->password){
@@ -95,6 +142,11 @@ class MemberController extends Controller
 
     
     }
+
+
+    
+
+    
 
 
     public function userView(Request $request){
