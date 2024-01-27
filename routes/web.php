@@ -41,8 +41,7 @@ Route::get('/allMembers', [MemberController::class,'getAllMembers'])->name('allM
 Route::get('/contributions/{username}', [ContributionsController::class,'getUserContributions'])->name('_userContributions');
 Route::get('/userInfo/{username}', [MemberController::class,'getUserInfo'])->name('_userInfo');
 Route::post('/updateUser', [MemberController::class,' updateUser'])->name('updateUser');
-Route::post('/mobileUserRegister',[MemberController::class ,'mobileAppRegister'])->name('mobileAppRegister');
-Route::get('/mobileUserRegister',[MemberController::class ,'mobileAppRegister'])->name('mobileAppRegister');
+
 
 
 URL::forceScheme('https');
