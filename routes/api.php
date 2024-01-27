@@ -16,9 +16,9 @@ use App\Http\Controllers\MemberController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
 Route::get('/allMembersMobile', [MemberController::class,'getAllMembers'])->name('allMembersMobile');
 Route::post('/mobileUserRegister',[MemberController::class ,'mobileAppRegister'])->name('mobileAppRegister');
