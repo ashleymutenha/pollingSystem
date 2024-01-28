@@ -22,7 +22,7 @@ use App\Http\Controllers\MemberController;
 
 Route::get('/allMembersMobile', [MemberController::class,'getAllMembers'])->name('allMembersMobile');
 Route::post('/mobileUserRegister',[MemberController::class ,'mobileAppRegister'])->name('mobileAppRegister');
-Route::post('/updateUser', [MemberController::class,' updateUser'])->name('updateUser');
+Route::post('/updateUser', [MemberController::class,'updateUser'])->name('updateUser');
 Route::get('/contributions/{username}', [ContributionsController::class,'getUserContributions'])->name('_userContributions');
 
 
