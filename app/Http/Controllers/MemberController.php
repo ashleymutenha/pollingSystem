@@ -248,7 +248,7 @@ public function removeAddContribution(Request $request){
 }
 
 
-public function updateUser(){
+public function updateUser(Request $request){
     
     $data = $request->validate(['name'=>'required',
     'email'=>'required',
