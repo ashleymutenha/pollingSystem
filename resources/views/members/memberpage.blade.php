@@ -120,7 +120,7 @@
     <div style ="position:relative; background:#f2f2f3; padding:0; margin:0;
     border-top-right-radius: 12px;
     border-top-left-radius: 12px;padding:3px 3px 3px 3px;">
-   <div style ="font-size:28px; top :30px; position:absolute; font-family:cursive;margin-left:20px;">Personal Details</div>
+   <div style ="font-size:28px; top :30px; position:absolute; ;margin-left:20px;">Personal Details</div>
    <div style ="display:flex">
   <div style ="width:118px; height:118px; border-radius:50%; background:#c2c2c7; margin-left:10px;opacity:0.6"></div>
   <div style ="width:118px; height:118px; border-radius:50%; background:#5af1a6; margin-left:10px;opacity:0.6"></div>
@@ -128,9 +128,9 @@
 
 </div>
     <div style ="padding:8px 8px 8px 8px">
-   <div style ="font-size:32px;color:grey; margin-top:30px; margin-bottom:5px; border-bottom:1px solid green; font-family:cursive">{{$userDetails->name}}</div>
-   <div style ="font-size:32px;color:green; margin-top:23px; margin-bottom:5px; border-bottom:1px solid green; font-family:cursive">{{$userDetails->email}}</div>
-   <div style ="font-size:32px;color:blue; margin-top:23px; margin-bottom:5px; border-bottom:1px solid green; font-family:cursive">{{$userDetails->phone}}</div>
+   <div style ="font-size:32px;color:grey; margin-top:30px; margin-bottom:5px; border-bottom:1px solid green; ">{{$userDetails->name}}</div>
+   <div style ="font-size:32px;color:green; margin-top:23px; margin-bottom:5px; border-bottom:1px solid green; ">{{$userDetails->email}}</div>
+   <div style ="font-size:32px;color:blue; margin-top:23px; margin-bottom:5px; border-bottom:1px solid green; ">{{$userDetails->phone}}</div>
    <div>
    @if($addContributionStatus ==true)
    <div class ="card" style ="margin-bottom:3px">

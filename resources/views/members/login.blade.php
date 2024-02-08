@@ -63,7 +63,6 @@
       color:black;
       text-align:center;
       font-size:23;
-      font-family:cursive;
       font-weight:bold;
       border-radius:12px
     }
