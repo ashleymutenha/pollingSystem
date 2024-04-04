@@ -2,7 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MemberController;
+use App\Http\Controllers\TopicController;
+use App\Http\Controllers\OptionController;
 
 
 /*
@@ -20,12 +21,18 @@ use App\Http\Controllers\MemberController;
 //     return $request->user();
 // });
 
-Route::get('/allMembersMobile', [MemberController::class,'getAllMembers'])->name('allMembersMobile');
-Route::post('/mobileUserRegister',[MemberController::class ,'mobileAppRegister'])->name('mobileAppRegister');
-Route::post('/updateUser', [MemberController::class,'updateUser'])->name('updateUser');
-Route::get('/contributions/{username}', [ContributionsController::class,'getUserContributions'])->name('_userContributions');
+Route::get('/topics',[TopicController::class,'getTopics'])->name('getTopics');
+Route::post('/saveTopic',[TopicController::class,'saveTopic'])->name('saveTopic');
+Route::get('/saveTopic',[TopicController::class,'saveTopic'])->name('saveTopic');
 
+Route::post('/saveOption',[OptionController::class,'saveOption'])->name('saveOption');
+Route::get('/saveOption',[OptionController::class,'saveOption'])->name('saveOption');
 
+Route::get('/options',[OptionController::class,'getOptions'])->name('getOptions');
 
-// Route::get('/mobileUserRegister',[MemberController::class ,'mobileAppRegister'])->name('mobileAppRegister');
+Route::post('/currentOptionVotes',[OptionController::class, 'getCurrentOptionVotes'])->name('getCurrentOptionVotes');
+Route::get('/currentOptionVotes',[OptionController::class, 'getCurrentOptionVotes'])->name('getCurrentOptionVotes');
+Route::post('/deleteOption', [OptionController::class,'deleteOption'])->name('deleteOption');
+Route::post('/updateTopic', [TopicController::class,'updateTopic'])->name('updateTopic');
 
+URL::forceScheme('https');
