@@ -14,17 +14,19 @@ class TopicController extends Controller
     public function getTopics(Request $request){
 
 
-        $allTopics = topics::all();
-        $data =[];
+        // $allTopics = topics::all();
+        // $data =[];
 
-        foreach($allTopics as $topic){
-          $topic->optionVotes =options::where('topicid',$topic->topicid)->get();
+        // foreach($allTopics as $topic){
+        //   $topic->optionVotes =options::where('topicid',$topic->topicid)->get();
           
-          $data[] =$topic;
+        //   $data[] =$topic;
           
-        }
+        // }
        
-        return response($data);
+        // return response($data);
+
+        return response(json_encode("hello"))
         
 
     }
