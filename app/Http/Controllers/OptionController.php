@@ -103,15 +103,19 @@ public function deleteOption(Request $request){
 
     return response(json_encode("success"));
 }
-     
+     public function addOption(Request $request){
+        try {
+            $topic = topics::where('topicid',$request->topicid)->get()[0];
+            $topic->update($request->updatedData);
 
+            return response(json_encode("success"));
+        } catch (\Throwable $th) {
+            return response(json_encode("failure"));
 
-        // options::create($data);
-
-
+        }
         
 
-      
+     }
 
     }
 

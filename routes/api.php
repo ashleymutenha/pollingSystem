@@ -34,5 +34,8 @@ Route::post('/currentOptionVotes',[OptionController::class, 'getCurrentOptionVot
 Route::get('/currentOptionVotes',[OptionController::class, 'getCurrentOptionVotes'])->name('getCurrentOptionVotes');
 Route::post('/deleteOption', [OptionController::class,'deleteOption'])->name('deleteOption');
 Route::post('/updateTopic', [TopicController::class,'updateTopic'])->name('updateTopic');
+Route::post('/deleteTopic',[TopicController::class, 'deleteTopic'])->name('deleteTopic');
+
+Route::post('/addOption',[OptionController::class, 'addOption'])->name('addOption');
 
 URL::forceScheme('https');

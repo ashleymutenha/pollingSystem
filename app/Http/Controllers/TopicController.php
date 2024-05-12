@@ -19,8 +19,9 @@ class TopicController extends Controller
 
         foreach($allTopics as $topic){
           $topic->optionVotes =options::where('topicid',$topic->topicid)->get();
-
+          
           $data[] =$topic;
+          
         }
        
         return response($data);
@@ -55,25 +56,46 @@ class TopicController extends Controller
     }
 
     public function updateTopic(Request $request){
+        try {
+          $topic = topics::where('topicid', $request->topicid)->get()[0];
+          $topic->update($request->updatedData);
+  
+          $option = options::where(['topicid'=>$request->topicid, 'option'=>$request->oldOption])->get();
+          if(sizeof($option)!=0){
+          $updatedOption =$option[0];
+  
+          $updatedOption->option = $request->newOption;
+  
+          $option->update($updatedOption);
+          }
+  
+          return response(json_encode("success"));
+        } catch (\Throwable $th) {
+          return response(json_encode("failure"));
 
-        $topic = topics::where('topicid', $request->topicid)->get()[0];
-
-        $topic->update($request->newData);
-
-        return response(json_encode("success"));
+        }
+        
 
     }
 
     public function deleteTopic( Request $request){
-       $topic = topics::where('topicid', $request->topicid)->get()[0];
-       $topic->delete();
 
-       $options =options::where('topicid', $request->topicid)->get();
+      try {
+        $topic = topics::where('topicid', $request->topicid)->get()[0];
+        $topic->delete();
 
-       if(sizeof($options)!=0){
-      foreach($options as $option){
-        $option->delete();
+        $options=options::where('topicid', $request->topicid)->get();
+
+        foreach($options as $option){
+         $option->delete();
+        }
+ 
+        return response(["status"=>"success", "code"=>200]);
+      } 
+      
+      catch (\Throwable $th) {
+        return response(["status"=>"failure", "code"=>400]);
       }
-    }
+      
 }
 }
