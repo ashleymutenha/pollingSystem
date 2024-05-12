@@ -26,7 +26,7 @@ class TopicController extends Controller
        
         // return response($data);
 
-        return response(json_encode("hello"))
+        return response(json_encode("hello"));
         
 
     }
